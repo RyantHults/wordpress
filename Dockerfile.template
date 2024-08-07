@@ -82,6 +82,8 @@ RUN set -ex; \
 		zip \
 		pdo_mysql \
 	; \
+	# Not sure if I need this, but let's try
+	docker-php-ext-enable pdo_mysql; \
 {{ if is_alpine then ( -}}
 # WARNING: imagick is likely not supported on Alpine: https://github.com/Imagick/imagick/issues/328
 {{ ) else "" end -}}
