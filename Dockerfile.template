@@ -80,6 +80,7 @@ RUN set -ex; \
 		intl \
 		mysqli \
 		zip \
+		pdo_mysql \
 	; \
 {{ if is_alpine then ( -}}
 # WARNING: imagick is likely not supported on Alpine: https://github.com/Imagick/imagick/issues/328
