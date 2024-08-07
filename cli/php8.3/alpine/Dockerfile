@@ -44,7 +44,10 @@ RUN set -ex; \
 		intl \
 		mysqli \
 		zip \
+		pdo_mysql \
 	; \
+	# Not sure if I need this, but let's try
+	docker-php-ext-enable pdo_mysql; \
 # WARNING: imagick is likely not supported on Alpine: https://github.com/Imagick/imagick/issues/328
 # https://pecl.php.net/package/imagick
 # https://github.com/Imagick/imagick/commit/5ae2ecf20a1157073bad0170106ad0cf74e01cb6 (causes a lot of build failures, but strangely only intermittent ones 🤔)
