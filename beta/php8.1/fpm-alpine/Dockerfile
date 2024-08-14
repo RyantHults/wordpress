@@ -92,7 +92,14 @@ RUN set -eux; \
 		echo 'opcache.interned_strings_buffer=8'; \
 		echo 'opcache.max_accelerated_files=4000'; \
 		echo 'opcache.revalidate_freq=2'; \
-	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
+	} > /usr/local/etc/php/conf.d/opcache-recommended.ini; \
+	{ \
+		echo 'file_uploads = On'; \
+		echo 'memory_limit = 500M'; \
+		echo 'upload_max_filesize = 500M'; \
+		echo 'post_max_size = 500M'; \
+		echo 'max_execution_time 300'; \
+	} > /usr/local/etc/php/conf.d/uploads.ini
 # https://wordpress.org/support/article/editing-wp-config-php/#configure-error-logging
 RUN { \
 # https://www.php.net/manual/en/errorfunc.constants.php
@@ -136,6 +143,10 @@ RUN set -eux; \
 		echo ''; \
 		echo 'php_value upload_max_filesize 500M'; \
 		echo 'php_value post_max_size 500M'; \
+		echo 'php_value memory_limit 500M; \
+		echo 'php_value max_execution_time 300'; \
+		echo 'php_value max_input_time 300'; \
+VOLUME 
 	} > /usr/src/wordpress/.htaccess; \
 	\ 
 	chown -R www-data:www-data /usr/src/wordpress; \
