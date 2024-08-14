@@ -79,8 +79,11 @@ RUN set -ex; \
 		gd \
 		intl \
 		mysqli \
+		pdo \
+		pdo_mysql \
 		zip \
 	; \
+	docker-php-ext-enable mysqli; \
 {{ if is_alpine then ( -}}
 # WARNING: imagick is likely not supported on Alpine: https://github.com/Imagick/imagick/issues/328
 {{ ) else "" end -}}
