@@ -139,7 +139,7 @@ RUN set -eux; \
 		echo 'php_value upload_max_filesize 500M'; \
 		echo 'php_value post_max_size 500M'; \
 	} > /usr/src/wordpress/.htaccess; \
-	\
+	\ 
 	chown -R www-data:www-data /usr/src/wordpress; \
 # pre-create wp-content (and single-level children) for folks who want to bind-mount themes, etc so permissions are pre-created properly instead of root:root
 # wp-content/cache: https://github.com/docker-library/wordpress/issues/534#issuecomment-705733507
