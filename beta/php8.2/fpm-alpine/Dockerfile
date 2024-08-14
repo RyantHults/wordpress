@@ -146,7 +146,6 @@ RUN set -eux; \
 		echo 'php_value memory_limit 500M; \
 		echo 'php_value max_execution_time 300'; \
 		echo 'php_value max_input_time 300'; \
-VOLUME 
 	} > /usr/src/wordpress/.htaccess; \
 	\ 
 	chown -R www-data:www-data /usr/src/wordpress; \
