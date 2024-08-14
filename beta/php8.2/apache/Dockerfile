@@ -44,6 +44,8 @@ RUN set -ex; \
 		mysqli \
 		zip \
 	; \
+	docker-php-ext-install pdo pdo_mysql; \
+	docker-php-ext-enable mysqli pdo pdo_mysql; \
 # https://pecl.php.net/package/imagick
 # https://github.com/Imagick/imagick/commit/5ae2ecf20a1157073bad0170106ad0cf74e01cb6 (causes a lot of build failures, but strangely only intermittent ones 🤔)
 # see also https://github.com/Imagick/imagick/pull/641
